@@ -111,3 +111,17 @@ scrollButton.addEventListener('click', () => {
     });
 });
 
+function showSkill(bar) {
+
+    const fill = bar.querySelector(".fill");
+    const percent = bar.querySelector(".skill-percent");
+
+    if (bar.classList.contains("active")) return;
+
+    const value = fill.getAttribute("data-width");
+
+    fill.style.width = value;
+
+    percent.innerText = value;   // show text
+    bar.classList.add("active");
+}
