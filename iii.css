@@ -16,7 +16,7 @@ body {
 .wrapper {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 50px 20px;
+    padding: 60px 20px;
 }
 body.dark {
     background-color: #212121;
@@ -52,68 +52,95 @@ body.dark {
   }
 
 /* Navigation Styles */
+/* ================= NAVBAR ================= */
+
 #header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
-    background-color: #000000;
+    padding: 15px 20px;
+    background-color: #070000;
+    flex-wrap: wrap; /* important for responsiveness */
 }
 
+/* Logo */
 .nav-logo {
     font-size: 24px;
     font-weight: bold;
 }
 
-.nav-menu-btn {
-    display: none;
-}
-
+/* Menu container */
 .nav-menu {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
 }
 
+/* Menu list */
 .nav_menu_list {
     list-style: none;
     display: flex;
     align-items: center;
-    margin-right: 20px;
+    gap: 15px;
 }
 
+/* Each item */
 .nav_list {
-    margin: 0 10px;
     position: relative;
 }
 
+/* Links */
 .nav-link {
-    text-decoration: double;
+    text-decoration: none;
     color: #fff;
-    padding: 10px;
-    transition: all 0.3s ease;
+    padding: 8px 12px;
+    transition: 0.3s ease;
     position: relative;
-    overflow: hidden;
 }
 
 .nav-link:hover {
-    color: #f39c12; /* Change to your preferred hover color */
+    color: #f39c12;
 }
 
+/* Small circle effect */
 .circle {
     position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: #f39c12; /* Circle color */
+    width: 8px;
+    height: 8px;
+    background-color: #f39c12;
     border-radius: 50%;
-    bottom: -5px;
-    right: -5px;
+    bottom: -4px;
+    right: -4px;
     opacity: 0;
-    transition: all 0.3s ease;
+    transition: 0.3s ease;
 }
 
 .nav_list:hover .circle {
     opacity: 1;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media screen and (max-width: 768px) {
+
+    #header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-menu {
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .nav_menu_list {
+        flex-wrap: wrap; /* wrap properly */
+        justify-content: center;
+    }
+
+    .nav_list {
+        margin: 5px;
+    }
 }
 
 /* Dark Mode Toggle */
@@ -137,48 +164,63 @@ body.dark {
 }
 
 /* Main Section Styles */
+
+/* ================= FEATURED BOX ================= */
+
 .featured-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 30px;
     margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+/* Image container */
+.featured-image {
+    flex: 1;
+    text-align: center;
 }
 
 .featured-image img {
-    width: 100%; /* Ensures the image takes full width */
-    height: auto; /* Maintains aspect ratio */
-    max-width: 150%; /* Ensures image doesn't exceed container width */
-    border-radius: 10px; /* Adds rounded corners */
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    margin: 0 auto;
 }
 
+/* ================= MAGIC EFFECT (CLICK ONLY) ================= */
+
+/* NORMAL STATE (NO EFFECT AT ALL) */
 .magical-effect {
-    transition: transform 0.5s ease-in-out;
-    width: 70%; /* Adjust the width of the image */
-    margin: 0 auto; /* Center the image */
+    transform: none;
+    box-shadow: none;
+    transition: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.magical-effect:hover {
-    transform: translateY(-5px) translateX(-5px) rotate(5deg) scale(1.05);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
+/* ONLY ON CLICK */
 .magical-effect:active {
-    transform: translateY(5px) translateX(5px) rotate(-5deg) scale(0.95);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: translateY(6px) scale(0.95) rotate(-2deg);
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    transition: all 0.1s ease;
 }
+
+/* ================= BUTTERFLY EFFECT ================= */
 
 .butterfly-effect {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    pointer-events: none;
 }
 
 .butterfly {
     position: absolute;
-    top: 0;
-    left: 0;
-    animation: fly 3s infinite;
+    animation: fly 3s linear infinite;
 }
 
 @keyframes fly {
@@ -186,7 +228,7 @@ body.dark {
         transform: translate(0, 0);
     }
     100% {
-        transform: translate(50px, -50px);
+        transform: translate(40px, -40px);
     }
 }
 
@@ -198,56 +240,58 @@ body.dark {
     animation-delay: 2s;
 }
 
-/* About Section Styles */
+/* ================= ABOUT SECTION ================= */
+
 .section {
-    padding: 50px 0;
+    padding: 50px 20px;
 }
 
 .top-header {
     text-align: center;
     margin-bottom: 30px;
     background-color: #555;
+    padding: 10px;
+    border-radius: 8px;
 }
 
 .about-info {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    gap: 15px;
     text-align: center;
-    margin-bottom: 30px;
 }
 
-.hire-me-btn {
-    background-color: #FFC107; /* bright orange color */
-    color: #FFFFFF; /* white text color */
-    border: none;
-    border-radius: 10px;
-    padding: 15px 30px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .hire-me-btn:hover {
-    background-color: #FFA07A; /* darker orange color on hover */
-    box-shadow: 0 0 10px rgba(255, 160, 122, 0.5);
-  }
-  
-  .hire-me-btn span {
-    margin-right: 10px;
-  }
-  
-  .hire-me-btn i {
-    font-size: 20px;
-    vertical-align: middle;
-  }
-  
-  .hire-me-btn:active {
-    transform: scale(0.95);
-    box-shadow: 0 0 10px rgba(255, 160, 122, 0.5);
-  }
+/* ================= BUTTON ================= */
+
+/* Featured buttons container ko side-by-side karne ke liye */
+.featured-buttons {
+    display: flex;           /* Flexbox enable karega */
+    flex-direction: row;    /* Buttons ko ek line (left-right) mein layega */
+    gap: 15px;              /* Dono buttons ke beech ka gap */
+    justify-content: flex-start; /* Buttons ko left side align rakhega */
+    margin-top: 20px;       /* Upar se thodi jagah */
+}
+
+/* Button ki width auto rakhein taaki wo screen puri na ghere */
+.hire-me-btn, .cv-btn {
+    display: inline-flex !important; 
+    width: auto;            /* Fixed width hata kar auto kar diya */
+    min-width: 140px;       /* Ek minimum size maintain rahega */
+    padding: 12px 20px;
+}
+
+/* Mobile responsive: Choti screen par ek ke niche ek aa jayein */
+@media screen and (max-width: 480px) {
+    .featured-buttons {
+        flex-direction: column; /* Mobile par vertical alignment */
+        align-items: center;
+    }
+    .hire-me-btn, .cv-btn {
+        width: 100%;        /* Mobile par button full width ho jayenge */
+    }
+}
 
 /* Skill Section Styles */
 .skill {
@@ -317,180 +361,318 @@ body.dark {
     opacity: 1;
 }
 
-/* Project Section Styles */
+/* ================= PROJECT SECTION (FLEXIBLE + RESPONSIVE) ================= */
+
 .project-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    padding: 40px 20px;
     background-color: #111;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
+    justify-items: center;
+    align-items: stretch;
 }
 
+/* Project Card */
 .project-box {
-    background-color: #333;
-    padding: 20px;
-    text-align: center;
-    width: 200px;
-    border-radius: 10px;
-    transition: background-color 0.3s ease;
-}
-
-.project-box:hover {
-    background-color: #444; /* Hover color */
-}
-
-.project-box h3 {
-    margin-bottom: 10px;
-}
-
-/* Contact Section Styles */
-.text-area {
-    margin-top: 20px;
-}
-
-.input-field, .input-subject, textarea {
+    background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
+    padding: 25px;
     width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #333;
-    border: none;
-    color: #000000;
-    border-radius: 5px;
+    max-width: 260px;
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
 }
 
-.input-field:focus, .input-subject:focus, textarea:focus {
-    outline: none;
-    box-shadow: 0 0 5px #f39c12; /* Focus color */
+/* Hover effect */
+.project-box:hover {
+    transform: translateY(-8px);
+    background: linear-gradient(145deg, #2a2a2a, #3a3a3a);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
 }
 
+/* Title */
+.project-box h3 {
+    color: #f39c12;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+/* Description */
+.project-box p {
+    font-size: 14px;
+    color: #ccc;
+    line-height: 1.4;
+}
+
+/* Button (if you add) */
+/* ================= FINAL BUTTON FIX (PROJECT + ALL LINKS) ================= */
+
+/* Reset ALL anchor tags properly */
 .btn {
-    background-color: #f39c12;
-    color: #333;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    position: relative;
-    overflow: hidden;
+    display: inline-block;
+    padding: 12px 20px;
+    background: #333;
+    color: #fff;
+    border-radius: 10px;
+    text-decoration: none;
 }
 
 .btn:hover {
-    background-color: #e67e22; /* Hover color */
-    transform: scale(1.05); /* Scale up on hover */
+    background: #f39c12;
+    color: #000;
 }
 
-.btn:after {
-    content: '';
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0.2); /* Button overlay color */
-    top: 50%;
-    left: 50%;
-    width: 300%;
-    height: 300%;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s ease, height 0.3s ease;
-    z-index: 0;
+@media (max-width: 768px) {
+    .text-btn {
+        flex-direction: column;
+    }
+
+    .text-btn .btn {
+        width: 100%;
+        text-align: center;
+    }
 }
 
-.btn:hover:after {
-    width: 0;
-    height: 0;
+/* Project buttons fix */
+.project-box a {
+    display: inline-block !important;
+    padding: 10px 16px !important;
+    margin-top: 12px !important;
+
+    background: #f39c12 !important;
+    color: #000 !important;
+
+    font-weight: 600 !important;
+    border-radius: 10px !important;
+
+    text-align: center !important;
+    cursor: pointer !important;
+
+    transition: all 0.3s ease !important;
 }
 
-.btn i {
-    margin-left: 5px;
+/* Hover effect */
+.project-box a:hover {
+    background: #ffffff !important;
+    color: #f39c12 !important;
+    transform: translateY(-3px);
 }
 
-/* Skill Bar Animation */
-.skill-bar {
-    border-radius: 10px;
-    background-color: chartreuse;
-    overflow: visible;
-    margin-bottom: 20px;
-    position: relative;
-    display:-moz-grid;
-    justify-content: left;
+/* Force buttons to behave like buttons */
+.project-box a,
+.cv-btn,
+.hire-me-btn {
+    display: inline-flex !important;
     align-items: center;
-    width: 300%; /* Changed from 300% to 100% */
-    height: 30px;
-    background-color: #000000;
+    justify-content: center;
 }
 
-.skill-bar.skill-value {
-    flex-grow: 1; /* Add this to make the skill value grow to fill the available space */
-    padding: 10px;
-    color: #fff;
-    text-align: center;
+/* Responsive tuning */
+@media (max-width: 768px) {
+    .project-container {
+        padding: 20px 10px;
+        gap: 15px;
+    }
+
+    .project-box {
+        max-width: 100%;
+    }
 }
-  
-  .skill-bar .skill {
+/* ================= SKILL CARD SIZE FIX ================= */
+/* Update this section */
+.skill {
+    display: grid;
+    /* Ek row mein 2 skills dikhane ke liye (Aap isse 1fr 1fr 1fr bhi kar sakte hain) */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 20px;
+    max-width: 800px; /* Isse content bich mein rahega, zyada failega nahi */
+    margin: 30px auto; /* auto margin se section center mein aa jayega */
+    padding: 20px;
+}
+
+.skill-box {
+    background: rgba(255, 255, 255, 0.05); /* Light transparent background */
+    padding: 20px;
+    border-radius: 12px;
+    width: 100%; /* Grid handles the width now */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.3s ease;
+}
+
+.skill-box:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+}
+/* Title */
+.skill-bar {
+    position: relative;
+    width: 100%;
+    height: 22px;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Fill bar (IMPORTANT FIX) */
+.skill-bar .fill {
     display: block;
     height: 100%;
-    background-color: #fafafa;
-    border-radius: 200px;
-    transition: width 2s ease-in-out;
-  }
-  
-  .skill-bar.html .skill {
-    background-color: #f7f7f7;
-    width: 80%;
-  }
-  
-  .skill-bar.css .skill {
-    background-color: #ffffff;
-    width: 70%;
-  }
-  
-  .skill-bar.python .skill {
-    background-color: #f6f6f6;
-    width: 70%;
-  }
-  
-  .skill-bar.javascript .skill {
-    background-color: #fdfdfd;
-    width: 60%;
-  }
-  
-  /* Add hover effect to skill bars */
-  .skill-bar:hover .skill {
-    opacity: 0.9;
-    transform: scale(2.05);
-  }
-  
-  /* Add the title styles */
-  .skill-box .title {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  /* Skill percentage display */
-  .skill-percent {
-    position: var(#ff7171);
-    right: 10px;
-    font-weight: bold;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-  }
-  
-  .skill-bar:hover .skill-percent {
-    opacity: 1;
-  }
-  
-  /* Add hover effect to skill bars */
-  .skill-bar:hover .skill {
-    opacity: 0.8;
-    transform: scale(1.05);
-  }
-  
-  /* Add the title styles */
-  .skill-box .title {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }  
+    width: 0%;
+    border-radius: 12px;
+    transition: width 1.2s ease;
+}
 
+/* COLORS + WIDTH FIX */
+.skill-bar.html .fill {
+    background: #f39c12;
+}
+
+.skill-bar.css .fill {
+    background: #3498db;
+}
+
+.skill-bar.javascript .fill {
+    background: #e74c3c;
+}
+
+.skill-bar.react .fill {
+    background: #9b59b6;
+}
+
+/* Percentage text */
+.skill-percent {
+    position: absolute;
+    right: 10px;
+    top: 2px;
+    font-size: 14px;
+    color: white;
+    /* opacity: 1; */
+    /* transition: 0.3s ease; */
+    z-index: 10;
+}
+
+
+/* ================= CONTACT SECTION CENTER DESIGN ================= */
+
+#contact {
+    padding: 120px 20px;
+    background: linear-gradient(135deg, #111, #1e1e1e);
+}
+
+/* Title */
+#contact .top-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#contact .top-header h1 {
+    color: #f39c12;
+    font-size: 32px;
+}
+
+/* Container center */
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form box */
+.contact-container form {
+    width: 100%;
+    max-width: 500px;
+    background: #222;
+    padding: 30px;
+    border-radius: 16px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Form group spacing */
+.button-group {
+    display: flex;       /* Isse elements ek line mein aate hain */
+    flex-direction: row; /* Row matlab side-by-side */
+    justify-content: flex-start; /* Buttons ko left side mein rakhne ke liye */
+    gap: 15px;          /* Dono buttons ke beech ka gap */
+    margin-top: 25px;
+    flex-wrap: wrap;    /* Agar screen choti ho toh buttons apne aap niche aa jayein */
+}
+
+/* Labels */
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: #ccc;
+    font-size: 14px;
+}
+
+/* Inputs */
+.form-group input,
+.message-textarea {
+    width: 100%;
+    padding: 12px 14px;
+
+    background: #111;
+    color: #fff;
+
+    border: 1px solid #333;
+    border-radius: 10px;
+
+    outline: none;
+    transition: 0.3s ease;
+}
+
+/* Focus effect */
+.form-group input:focus,
+.message-textarea:focus {
+    border-color: #f39c12;
+    box-shadow: 0 0 10px rgba(243, 156, 18, 0.4);
+}
+
+/* Textarea height */
+.message-textarea {
+    min-height: 120px;
+    resize: none;
+}
+
+/* Button */
+.btn {
+    width: 100%;
+    padding: 12px;
+
+    background: #f39c12;
+    color: #000;
+
+    border: none;
+    border-radius: 10px;
+
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+/* Hover */
+.btn:hover {
+    background: #010000;
+    color: #f9f8f7;
+    transform: translateY(-3px);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .contact-container form {
+        padding: 20px;
+    }
+}
 
 /* Footer Styles */
 footer {
@@ -535,8 +717,8 @@ footer {
 }
 
 .cert-image {
-    width: 200px; /* adjust the width as needed */
-    height: 150px; /* adjust the height as needed */
+    width: 100px; /* adjust the width as needed */
+    height: 100px; /* adjust the height as needed */
     margin: 10px; /* add some margin around the image */
     border-radius: 10px; /* add a slight border radius */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* add a subtle box shadow */
@@ -557,8 +739,8 @@ footer {
         top: 0;
         right: 0;
         background-color: #111;
-        height: 100vh;
-        width: 200px;
+        height: 50vh;
+        width: 100px;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -579,7 +761,7 @@ footer {
     }
 
     .nav-menu-btn i {
-        font-size: 24px;
+        font-size: 10px;
         cursor: pointer;
     }
 
@@ -603,38 +785,45 @@ footer {
 /* NEW UPDATES: CERTIFICATES, SOCIAL MEDIA & FOOTER BUTTONS   */
 /* ========================================================== */
 
-/* 1. Fix Certifications Overlap & Spacing */
+
+/* ================= CERT BOX FIX ================= */
+
+.cert-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* controls spacing between cards */
+    justify-content: center;
+}
+
 .cert-box {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
-    padding: 25px;
-    min-height: 350px; /* Ensures consistent box size */
-    margin-bottom: 20px;
+    justify-content: flex-start;
+
+    padding: 20px;
+    gap: 10px; /* 🔥 controls internal spacing */
+    min-height: auto; /* removes extra empty space */
+
     text-align: center;
 }
 
+/* paragraph spacing fix */
 .cert-box p {
-    margin-bottom: auto; /* Pushes button to the bottom */
-    padding-bottom: 15px;
+    margin: 0;
+    line-height: 1.4;
 }
 
+/* button spacing fix */
 .view-cert-btn {
+    margin-top: 10px;   /* reduced space */
+    padding: 8px 16px;  /* smaller + cleaner */
     display: inline-block;
-    margin-top: 15px;
-    padding: 10px 20px;
-    background-color: #f39c12;
-    color: #000 !important;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: 0.3s ease;
 }
 
-.view-cert-btn:hover {
-    background-color: #e67e22;
-    transform: translateY(-3px);
+/* icon spacing fix */
+.cert-box i {
+    margin-bottom: 5px;
 }
 
 /* 2. 3D Social Media Icons */
@@ -679,20 +868,30 @@ footer {
 }
 
 .footer-cv-btn {
-    display: inline-block;
-    padding: 12px 28px;
-    background-color: #f39c12;
-    color: #000 !important;
-    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: auto;        /* Button ki width utni hi hogi jitna text hai */
+    min-width: 150px;
+    background-color: #333;
+    color: #fff;  
+    border: none;
+    border-radius: 12px;
+    padding: 12px 25px;
+
+    font-size: 16px;
+    font-weight: 600;
     text-decoration: none;
-    border-radius: 50px;
-    transition: 0.3s ease;
-    box-shadow: 0 5px 15px rgba(243, 156, 18, 0.3);
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .footer-cv-btn:hover {
-    background-color: #fff;
-    color: #f39c12 !important;
+    background-color: #fdfdfd;
+    color: #0b0804 !important;
     transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
 }
