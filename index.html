@@ -39,18 +39,8 @@
                         <div class="circle"></div>
                     </li>
                 </ul>
-                <div class="mode">
-                    <div class="sun-moon" id="toggle-switch">
-                        <i class="fa fa-moon" id="moon"></i>
-                        <i class="fa fa-sun" id="sun"></i>
-                    </div>
-                </div>
-                <div class="nav-menu-btn">
-                    <i class="uil uil-bars" onclick="toggleMenu()"></i>
-                </div>
-            </div>
+                
         </nav>
-
         <main class="wrapper">
             <section class="featured-box" id="home">
                 <div class="featured-text">
@@ -64,10 +54,21 @@
                         <h2>My name is Nandini. I'm a web developer.</h2>
                     </div>
                     <br>
-                    <div class="text-btn">
-                        <button class="btn hire-btn">Hire Me</button>
-                        <a class="btn" href="https://drive.google.com/file/d/1EkvudijWGRqtQ0g93mU5Zv1kw04cPu8s/view?usp=sharing">Download CV <i class="uil uil-file"></i></a>
-                    </div>
+                    <div class="text-btn" style="display: flex !important; flex-direction: row !important; gap: 15px !important; align-items: center !important; flex-wrap: wrap !important;">
+    
+    <button class="btn hire-btn" 
+            style="width: auto !important; margin: 0 !important;" 
+            onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        Hire Me
+    </button>
+
+    <a class="btn" 
+       style="width: auto !important; margin: 0 !important; text-decoration: none !important;" 
+       href="https://drive.google.com/file/d/1EkvudijWGRqtQ0g93mU5Zv1kw04cPu8s/view?usp=sharing">
+        Download CV <i class="uil uil-file"></i>
+    </a>
+
+</div>
                 </div>
                 <!-- Featured Image -->
 <div class="featured-image">
@@ -122,8 +123,7 @@
                                     </div>
                                 </div>
                             </section>
-                
-                            <section class="section" id="about">
+                              <section class="section" id="about">
                                 <div class="top-header">
                                     <h1>About Me</h1>
                                 </div>
@@ -137,46 +137,37 @@
                                                     <p>My name is Nandini. I'm a web developer passionate about creating dynamic and responsive web applications. I have a strong foundation in HTML, CSS, JavaScript, and Python, and I'm continuously learning new technologies to enhance my skills.</p>
                                                 </figcaption>
                                             </figure>
-                                            <!-- <button class="about-me-btn">Hire Me</button> -->
-                                             <br>
-                                            <button class="about-me-btn hire-me-btn">
-                                                <span>Hire Me</span>
-                                                <i class="uil uil-arrow-right"></i>
-                                              </button>
                                         </div>
                                     </div>
-                                    <div class="skills">
+                                    <div class="skill-box">
+    <div class="title">HTML</div>
+
+    <div class="skill-bar html" onclick="showSkill(this)">
+        <span class="fill" data-width="80%"></span>
+        <span class="fill-percent">80%</span>
+    </div>
+</div>
                                         <div class="skill-box">
-                                            <span class="title">HTML</span>
-                                            <div class="skill-bar html">
-                                                <span class="skill per" data-per="80%"></span>
-                                                <span class="percent">80%</span>
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="skill-box">
-                                            <span class="title">CSS</span>
-                                            <div class="skill-bar css">
-                                                <span class="skill per" data-per="70%"></span>
-                                                <span class="percent">70%</span>
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="skill-box">
-                                            <span class="title">Python</span>
-                                            <div class="skill-bar python">
-                                                <span class="skill per" data-per="70%"></span>
-                                                <span class="percent">70%</span>
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="skill-box">
-                                            <span class="title">JavaScript</span>
-                                            <div class="skill-bar javascript">
-                                                <span class="skill per" data-per="60%"></span>
-                                                <span class="percent">60%</span>
-                                            </div>
-                                        </div>
+    <div class="title">CSS</div>
+
+    <div class="skill-bar css" onclick="showSkill(this)">
+        <span class="fill" data-width="70%"></span>
+        <span class="fill-percent">70%</span>
+    </div>
+</div>
+    <div class="skill-box">
+    <div class="title">JavaScript</div>
+    <div class="skill-bar javascript" onclick="showSkill(this)">
+        <span class="fill" data-width="70%"></span>
+        <span class="fill-percent">70%</span>
+    </div>
+</div>
+    <div class="skill-box">
+    <div class="title">React</div>
+    <div class="skill-bar react" onclick="showSkill(this)">
+    <span class="fill" data-width="50%"></span>
+    <span class="fill-percent">50%</span>
+</div>
                                     </div>
                                 </div>
                             </section>
@@ -206,13 +197,13 @@
             <a href="https://1drv.ms/i/c/2cfea39207d3f704/EQT30weSo_4ggCzeAAAAAAAB-X8OkAu2vJi2iy2TWjmJQg?e=Ya5lJa" target="_blank" class="btn view-cert-btn">View Certificate</a>
         </div>
     </div>
-</section> 
+<!-- </section>  -->
      <section class="section" id="contact">
              <div class="top-header">
              <h1>Contact</h1>
                              </div>
                                     <div class="contact-container">
-                                        <form action="https://formspree.io/f/mwkwlwkk" method="POST">
+                                        <form action="https://formspree.io/f/xrerqwjd" method="POST">
                                             <div class="form-group">
                                                 <label for="name">Name</label>
                                                 <input type="text" id="name" name="name" required>
@@ -240,10 +231,11 @@
     <a href="https://github.com/nanna17" target="_blank" class="icon-circle github">
         <i class="uil uil-github-alt"></i>
     </a>
+                            </div>
+    <br>
 <footer>
     <div class="footer">
         <p>© 2026 Portfolio. All Rights Reserved.</p>
-<br>
         <a href="https://drive.google.com/file/d/1EkvudijWGRqtQ0g93mU5Zv1kw04cPu8s/view?usp=sharing" target="_blank" class="btn footer-cv-btn">
             Download CV <i class="uil uil-file-download"></i>
         </a>
