@@ -145,10 +145,12 @@ body.dark {
 }
 
 .featured-image img {
-    width: 110%; /* Ensures the image takes full width */
+    width: 100%; /* Ensures the image takes full width */
     height: auto; /* Maintains aspect ratio */
     max-width: 150%; /* Ensures image doesn't exceed container width */
     border-radius: 10px; /* Adds rounded corners */
+    display: block;    /* Centering ke liye zaroori hai */
+    margin: 0 auto;
 }
 
 .magical-effect {
